@@ -1,0 +1,9 @@
+var url_srtMPT = "https://raw.githubusercontent.com/uptiseo/json24/main/srtMPT.json"; 
+$(document).ready(function(){
+  $.ajax({    url: url_srtMPT,    dataType: 'json',
+      error: function(){        console.log('JSON FAILED for data');      },
+    success:function(results){
+var srtMPTview = document.getElementById("srtMPTview");
+      results.srtMPTbasket.pageSRTList.forEach(function(element) {
+     srtMPTview.insertAdjacentHTML( 'beforeend',"<a href=" + element.pageSRT.link + " >"  + element.pageSRT.title + "</a> ");
+      });     }    })  }) 
